@@ -1,0 +1,100 @@
+:root {
+    --color: var(--yellow-5);
+    --shadow: var(--yellow-8);
+    --glare: hsla(323, 100%, 86%, 0.75);
+    --transition: 0.1s;
+    --font-size: var(--font-size-fluid-3);
+}
+
+
+#bp-container {
+    --padding: var(--size-2);
+    padding: var(--padding);
+    border-radius: var(--size-4);
+    text-decoration: none;
+    color: transparent;
+    position: relative;
+    transition: background 0.2s;
+}
+
+
+/* Animation for hearths */
+
+
+#bp-container {
+    --hover: 0.4;
+    --pos: 0;
+}
+
+#bp-container:hover {
+    --hover: 1;
+    --pos: 1;
+}
+
+#bp-container:active {
+    --hover: 0;
+}
+
+
+#bp-container svg {
+    position: absolute;
+    z-index: 3;
+    width: calc(var(--font-size) * 0.5);
+    aspect-ratio: 1;
+}
+
+#bp-container svg path {
+    fill: var(--glare);
+}
+
+#bp-container:hover svg {
+    animation: sparkle 0.75s calc((var(--delay-step) * var(--d)) * 1s) both;
+}
+
+@keyframes sparkle {
+    50% {
+        transform: translate(-50%, -50%) scale(var(--s, 1));
+    }
+}
+
+#bp-container svg {
+    --delay-step: 0.15;
+    top: calc(var(--y, 50) * 1%);
+    left: calc(var(--x, 0) * 1%);
+    transform: translate(-50%, -50%) scale(0);
+}
+
+#bp-container svg:nth-of-type(1) {
+    --x: 0;
+    --y: 20;
+    --s: 0.55;
+    --d: 1;
+}
+
+#bp-container svg:nth-of-type(2) {
+    --x: 15;
+    --y: 80;
+    --s: 0.65;
+    --d: 2;
+}
+
+#bp-container svg:nth-of-type(3) {
+    --x: 45;
+    --y: 40;
+    --s: 0.55;
+    --d: 3;
+}
+
+#bp-container svg:nth-of-type(4) {
+    --x: 75;
+    --y: 60;
+    --s: 0.45;
+    --d: 2;
+}
+
+#bp-container svg:nth-of-type(5) {
+    --x: 100;
+    --y: 30;
+    --s: 0.4;
+    --d: 4;
+}
